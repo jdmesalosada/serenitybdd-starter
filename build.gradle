@@ -37,6 +37,7 @@ ext {
     javaFakerVersion = '1.0.2'
     poi = '4.1.2'
     poiOmlx = '4.1.0'
+
 }
 
 dependencies {
@@ -64,26 +65,32 @@ dependencies {
     testAnnotationProcessor "org.projectlombok:lombok:${lombokVersion}"
 }
 
-/*task smoke(type: Test) {
+test {
     testLogging.showStandardStreams = true
-    maxParallelForks=3
+    maxParallelForks = 3
+    systemProperties System.getProperties()
+}
+
+task smoke(type: Test) {
+    testLogging.showStandardStreams = true
+    maxParallelForks = 3
     systemProperties System.getProperties()
     systemProperty("tags", "smoke")
 }
 
 task regression(type: Test) {
     testLogging.showStandardStreams = true
-    maxParallelForks=4
+    maxParallelForks = 4
     systemProperties System.getProperties()
     systemProperty("tags", "")
 }
 
 task pre(type: Test) {
     testLogging.showStandardStreams = true
-    maxParallelForks=3
+    maxParallelForks = 3
     systemProperties System.getProperties()
     systemProperty("tags", "not (payments)")
-}*/
+}
 
 serenity {
     reports = ["single-page-html"]
