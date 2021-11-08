@@ -27,23 +27,21 @@ targetCompatibility = 1.8
 
 ext {
     slf4jVersion = '1.7.7'
-    serenityCoreVersion = '2.3.12'
-    junitVersion = '4.13'
+    serenityCoreVersion = '2.5.10'
+    junitVersion = '4.13.1'
     assertJVersion = '3.8.0'
     logbackVersion = '1.2.3'
     jsonSchemaValidatorVersion = '3.0.7'
     jsonPath = '4.3.2'
-    lombokVersion = '1.18.16'
+    lombokVersion = '1.18.20'
     javaFakerVersion = '1.0.2'
     poi = '4.1.2'
     poiOmlx = '4.1.0'
-
 }
 
 dependencies {
-    compile "ch.qos.logback:logback-classic:${logbackVersion}"
-
-    compile "net.serenity-bdd:serenity-core:${serenityCoreVersion}",
+    testImplementation "ch.qos.logback:logback-classic:${logbackVersion}",
+            "net.serenity-bdd:serenity-core:${serenityCoreVersion}",
             "net.serenity-bdd:serenity-junit:${serenityCoreVersion}",
             "net.serenity-bdd:serenity-screenplay:${serenityCoreVersion}",
             "net.serenity-bdd:serenity-screenplay-webdriver:${serenityCoreVersion}",
@@ -66,13 +64,7 @@ dependencies {
     testAnnotationProcessor "org.projectlombok:lombok:${lombokVersion}"
 }
 
-test {
-    testLogging.showStandardStreams = true
-    maxParallelForks=3
-    systemProperties System.getProperties()
-}
-
-task smoke(type: Test) {
+/*task smoke(type: Test) {
     testLogging.showStandardStreams = true
     maxParallelForks=3
     systemProperties System.getProperties()
@@ -91,7 +83,7 @@ task pre(type: Test) {
     maxParallelForks=3
     systemProperties System.getProperties()
     systemProperty("tags", "not (payments)")
-}
+}*/
 
 serenity {
     reports = ["single-page-html"]
