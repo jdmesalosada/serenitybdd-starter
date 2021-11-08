@@ -19,7 +19,7 @@ Open a command window and run:
 
 ## Run in Remote - Selenoid
 
-    ./gradlew clean test -Dtags='login' -Denvironment=qa -Dwebdriver.remote.url=http://52.167.170.77:4444/wd/hub -Dwebdriver.remote.driver=chrome -Dserenity.driver.capabilities=enableVNC:true -Dwebdriver.remote.timeouts.implicitlywait=30000 -Dwebdriver.remote.timeouts.fluentwait=10000
+    ./gradlew clean test -Dtags='login' -Denvironment=qa -Dwebdriver.remote.url=http://127.0.0.1:4444/wd/hub -Dwebdriver.remote.driver=chrome -Dserenity.driver.capabilities=enableVNC:true -Dwebdriver.remote.timeouts.implicitlywait=30000 -Dwebdriver.remote.timeouts.fluentwait=10000
 
 
 ## Viewing the reports
